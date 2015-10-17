@@ -90,7 +90,7 @@ class sign{
 				case 'mobile': if(!$this->validate_mobile($value)){
 									array_push($this->err,"Enter a valid mobile number");
 								}else{
-									$this->mob = $num;
+									$this->mob = $value;
 								}
 							break;
 				case 'edate' : if(empty($value)){
@@ -158,7 +158,7 @@ class sign{
 
 	private function sign_in(){
 		// $qry = sprintf("INSERT INTO users (user_id,user_email,user_pass,user_study,user_mobile,user_fname,user_lname,user_col_acc,user_col_isfc) VALUES('%s','%s','%s','%s','%d','%s','%s','%d','%s')",$this->user_id,$this->umail,$this->upass,$this->col,$this->mob,$this->fname,$this->lname,$this->acc,$this->isfc);
-		$qry = sprintf("INSERT INTO users (user_id,user_email,user_pass,user_study,user_mobile,user_fname,user_lname,user_col_acc,user_col_isfc) VALUES('%s','%s','%s','%s','%d','%s','%s','%d','%s')",$this->user_id,$this->umail,$this->upass,$this->col,$this->mob,$this->fname,$this->lname,$this->user_col_acc,$this->user_col_isfc);
+		$qry = sprintf("INSERT INTO users (user_id,user_email,user_pass,user_study,user_mobile,user_fname,user_lname,user_col_acc,user_col_isfc) VALUES('%s','%s','%s','%s','%d','%s','%s','%d','%s')",$this->user_id,$this->umail,$this->upass,$this->col,$this->mob,$this->fname,$this->lname,$this->acc,$this->isfc);
 		$r = $this->con->query($qry);
 		if($r){
 			header('Location:/');

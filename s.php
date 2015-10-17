@@ -39,22 +39,11 @@ if(isset($_POST['sign_submit'])){
 <title>Home</title>
 <body>
 
-<div id="header">
-	<div class="header-wrap">
-		<div class="logo">
-			Smarty pants
-		</div>
-		<div class="nav">
-			<ul>
-				<li><a href="">Home</a></li>
-				<li><a href="">Students list</a></li>
-				<li><a href="">Log in</a></li>
-				<li><a href="">Start a campaign</a></li>
-			</ul>
-		</div>
-	</div>
-</div>
 
+<?PHP 
+
+require_once 'incs/header.php';
+?>
 
 <div id="container">
 
@@ -136,7 +125,7 @@ if(isset($_POST['sign_submit'])){
 								echo '<div style="color:red">'.$value.'</div>';
 							}
 								print_r($_SESSION['err']);
-							
+
 						}
 						?>
 							<hr class="colorgraph">

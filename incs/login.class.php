@@ -22,7 +22,6 @@ class login{
 	}
 
 	private function handle_data($stuff){
-		// $this->user_id = 	mysqli_real_escape_string($stuff['uid']);
 		$this->uemail = mysqli_real_escape_string($this->con,$stuff['umail']);
 		$this->upass =  mysqli_real_escape_string($this->con,$stuff['upass']);
 		if($this->auth_this_user()){
@@ -43,11 +42,9 @@ class login{
 
 
 	private function auth_this_user(){
-		$id = $this->user_id;
 		$qry = sprintf("SELECT user_id FROM users WHERE user_email = '%s'AND user_pass = '%s'",$this->uemail,$this->upass);
 		$r = $this->con->query($qry);
-		
-		if(mysqli_num_rows($r)==1){
+		if(mysqli_num_rows($r)>0){
 			return true;
 		}else{
 			return false;
@@ -61,7 +58,7 @@ class login{
 		}
 		$_SESSION['user_id'] = $this->user_id;
 		$url = 'st/u';
-		header('Location'.$url);
+		header('Location:'.$url);
 		exit();
 	}
 
